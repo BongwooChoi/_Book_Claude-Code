@@ -1,0 +1,44 @@
+/* 전역 스타일 리셋 및 기본 설정 */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg-start: #ffe9f0;
+  --color-bg-end: #d6e6ff;
+  --color-text: #3a2e39;
+  --color-accent: #ff6b9d;
+  --color-accent-dark: #e0517f;
+  --color-surface: rgba(255, 255, 255, 0.75);
+  font-family: 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  color: var(--color-text);
+  background: linear-gradient(160deg, var(--color-bg-start), var(--color-bg-end));
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+}

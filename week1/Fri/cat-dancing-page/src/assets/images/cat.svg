@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260" role="img" aria-label="춤추는 주황색 고양이">
+  <!-- 꼬리 -->
+  <g class="cat-tail">
+    <path d="M178 200 q45 -10 40 -60 q-3 -28 -28 -30 q18 12 14 34 q-5 32 -34 40 z" fill="#f2913d"/>
+  </g>
+
+  <!-- 몸통 -->
+  <g class="cat-body">
+    <ellipse cx="120" cy="190" rx="62" ry="52" fill="#f8a955"/>
+    <ellipse cx="120" cy="205" rx="38" ry="30" fill="#fde7c8"/>
+
+    <!-- 왼팔 / 오른팔 -->
+    <g class="cat-arm-left">
+      <ellipse cx="62" cy="170" rx="14" ry="30" fill="#f8a955" transform="rotate(28 62 170)"/>
+      <circle cx="50" cy="145" r="12" fill="#fbc98a"/>
+    </g>
+    <g class="cat-arm-right">
+      <ellipse cx="178" cy="170" rx="14" ry="30" fill="#f8a955" transform="rotate(-28 178 170)"/>
+      <circle cx="190" cy="145" r="12" fill="#fbc98a"/>
+    </g>
+
+    <!-- 발 -->
+    <ellipse cx="92" cy="236" rx="18" ry="12" fill="#fbc98a"/>
+    <ellipse cx="148" cy="236" rx="18" ry="12" fill="#fbc98a"/>
+  </g>
+
+  <!-- 머리 -->
+  <g class="cat-head">
+    <!-- 귀 -->
+    <path d="M58 62 L74 18 L100 52 z" fill="#f8a955"/>
+    <path d="M182 62 L166 18 L140 52 z" fill="#f8a955"/>
+    <path d="M67 54 L76 30 L91 50 z" fill="#fd9db8"/>
+    <path d="M173 54 L164 30 L149 50 z" fill="#fd9db8"/>
+
+    <!-- 얼굴 -->
+    <ellipse cx="120" cy="90" rx="66" ry="56" fill="#f8a955"/>
+
+    <!-- 줄무늬 -->
+    <path d="M108 38 q12 -8 24 0 l-6 14 q-6 -4 -12 0 z" fill="#f2913d"/>
+    <path d="M92 40 q8 -6 14 -2 l-8 14 z" fill="#f2913d"/>
+    <path d="M148 40 q-8 -6 -14 -2 l8 14 z" fill="#f2913d"/>
+
+    <!-- 눈 -->
+    <g class="cat-eyes">
+      <ellipse cx="96" cy="88" rx="10" ry="12" fill="#3a2e39"/>
+      <ellipse cx="144" cy="88" rx="10" ry="12" fill="#3a2e39"/>
+      <circle cx="99" cy="84" r="3.5" fill="#ffffff"/>
+      <circle cx="147" cy="84" r="3.5" fill="#ffffff"/>
+    </g>
+
+    <!-- 볼 -->
+    <circle cx="74" cy="106" r="10" fill="#fd9db8" opacity="0.7"/>
+    <circle cx="166" cy="106" r="10" fill="#fd9db8" opacity="0.7"/>
+
+    <!-- 코와 입 -->
+    <path d="M114 104 h12 l-6 8 z" fill="#e0517f"/>
+    <path d="M120 112 q0 8 -10 9 M120 112 q0 8 10 9" stroke="#3a2e39" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <!-- 수염 -->
+    <g stroke="#3a2e39" stroke-width="2" stroke-linecap="round">
+      <line x1="52" y1="100" x2="24" y2="94"/>
+      <line x1="52" y1="110" x2="24" y2="112"/>
+      <line x1="188" y1="100" x2="216" y2="94"/>
+      <line x1="188" y1="110" x2="216" y2="112"/>
+    </g>
+  </g>
+</svg>
