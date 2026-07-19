@@ -4,104 +4,45 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Context
 
-This is an Express.js API project that's part of the Claude Code 실용 가이드북 (Practical Guidebook) examples, specifically designed for Week 1 Day 4's full-stack web service tutorial. The project demonstrates how to build a simple but complete Express API using Claude Code.
+Express.js API example project for the Claude Code 실용 가이드북 (Practical Guidebook), Week 2 full-stack web service tutorial. The project demonstrates building a simple but complete Express API iteratively with Claude Code.
 
-## Development Commands
+## Current State
 
-### Initial Setup
+The project is a bare skeleton: only `package.json` (default `npm init` output) exists. There are no dependencies installed, no source files, and no npm scripts yet (`npm test` is the placeholder that exits with an error). When asked to build features, set up the foundation first:
+
 ```bash
-# Install dependencies (when package.json is updated)
-npm install
-
-# Install Express and basic dependencies
 npm install express cors dotenv
-npm install -D nodemon @types/node
+npm install -D nodemon
 ```
 
-### Running the Application
-```bash
-# Development mode with hot reload (after adding to package.json scripts)
-npm run dev
+Then add scripts to `package.json` (`"dev": "nodemon src/index.js"`, `"start": "node src/index.js"`) and update `"main"` to match the actual entry point (`src/index.js`).
 
-# Production mode
-npm start
+## Target Architecture
 
-# Run tests (when test framework is added)
-npm test
-```
-
-## Project Architecture
-
-This Express API follows a standard MVC-like pattern suitable for small to medium applications:
+Standard MVC-like layout for small/medium Express apps — create directories as features require them, not all upfront:
 
 ```
 src/
 ├── routes/          # API route definitions
 ├── controllers/     # Request handlers and business logic
-├── middleware/      # Custom middleware (auth, validation, etc.)
-├── models/         # Data models (if database is added)
-├── utils/          # Helper functions and utilities
-└── index.js        # Main application entry point
+├── middleware/      # Custom middleware (auth, validation, error handling)
+├── utils/           # Helper functions
+└── index.js         # App entry point: middleware registration, route mounting, listen
 ```
 
-## Key Development Patterns
+Adding a new endpoint: route file in `src/routes/` → controller in `src/controllers/` → register the route in `src/index.js`.
 
-### API Structure
-- RESTful API design with clear resource-based endpoints
-- Middleware for cross-cutting concerns (CORS, authentication, error handling)
-- Environment-based configuration using dotenv
-- JSON request/response format as default
+## Project Conventions
 
-### Error Handling
-- Centralized error handling middleware
-- Consistent error response format: `{ error: { message, code, details } }`
-- Proper HTTP status codes for different error types
+- Error responses use a consistent format via centralized error-handling middleware: `{ error: { message, code, details } }`
+- Configuration through environment variables with dotenv (`PORT`, etc.); never hardcode
+- async/await for all asynchronous code
+- JSON request/response as the default format
 
-### Best Practices for this Project
-- Use async/await for asynchronous operations
-- Implement input validation for all endpoints
-- Add proper CORS configuration for production
-- Keep controllers thin - business logic in separate service layers if needed
-- Use environment variables for configuration (PORT, API_KEYS, etc.)
+## Book Example Constraints
 
-## Common Tasks
+This code appears in a published guidebook, so:
 
-### Adding a New Endpoint
-1. Create route file in `src/routes/`
-2. Create controller in `src/controllers/`
-3. Register route in main `index.js`
-4. Add any necessary middleware
-5. Test with curl or Postman
-
-### Connecting a Database
-For MongoDB: `npm install mongoose`
-For PostgreSQL: `npm install pg`
-For MySQL: `npm install mysql2`
-
-### Adding Authentication
-Consider using: `npm install jsonwebtoken bcrypt`
-Or for OAuth: `npm install passport passport-jwt`
-
-## Integration with Book Examples
-
-This project serves as a teaching example for:
-- Basic Express.js setup and configuration
-- RESTful API design principles
-- Middleware concepts
-- Integration with frontend applications
-- Deployment preparation for cloud platforms
-
-When extending this project for book examples, maintain simplicity while demonstrating core concepts clearly. Each feature addition should be educational and build upon previous concepts.
-
-## Notes for Claude Code Book Context
-
-Since this is part of the Claude Code guidebook:
-- Keep code examples concise and well-commented in Korean
-- Focus on practical, immediately usable patterns
-- Demonstrate Claude Code capabilities through iterative development
-- Show how to leverage Claude Code for API development tasks like:
-  - Generating boilerplate code
-  - Creating CRUD operations
-  - Setting up middleware
-  - Writing tests
-  - Preparing for deployment
+- Code comments are written in Korean; identifiers and commit messages stay in English
+- Keep examples minimal and educational — prefer clarity over production completeness, one concept per feature addition
+- Each addition should build on previous steps (the book develops this API iteratively), so avoid large refactors that would invalidate earlier chapters

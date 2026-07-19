@@ -4,58 +4,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React application created with Create React App (CRA) that serves as a demonstration project for the Claude Code 실용 가이드북 (Claude Code Practical Guidebook) project. The book project documents practical usage patterns and best practices for Claude Code in Korean.
+A Create React App (CRA) project used as a demonstration app for the Claude Code 실용 가이드북 (Claude Code Practical Guidebook), a Korean-language book documenting practical Claude Code usage patterns. The app is currently the unmodified CRA template — its purpose is to serve as a simple, reproducible playground for book examples.
 
-## Development Commands
+## Commands
 
-### Core Commands
-- `npm start` - Start development server on http://localhost:3000 with hot reloading
-- `npm test` - Run tests in interactive watch mode
-- `npm run build` - Build production-ready app to `build/` folder
-- `npm run eject` - Permanently expose webpack configuration (irreversible)
+- `npm start` — dev server at http://localhost:3000 with hot reloading
+- `npm test` — Jest in interactive watch mode
+- `npm test -- --watchAll=false` — run all tests once
+- `npm test -- --testNamePattern="test name"` — run a specific test by name
+- `npm test -- --watchAll=false src/App.test.js` — run a single test file
+- `npm test -- --coverage` — coverage report
+- `npm run build` — production build to `build/`
 
-### Testing
-- Run specific test: `npm test -- --testNamePattern="test name"`
-- Run tests once without watch: `npm test -- --watchAll=false`
-- Coverage report: `npm test -- --coverage`
+ESLint uses CRA's default config (`react-app`, `react-app/jest` via package.json); lint errors surface in the dev-server console. There is no separate lint script.
 
-### ESLint
-The project uses CRA's default ESLint configuration. Linting errors will appear in the console during development.
+## Architecture
 
-## Project Architecture
+Standard CRA structure with no routing, state management, or custom tooling:
 
-### Directory Structure
-```
-src/
-├── App.js          # Main application component
-├── App.test.js     # Tests for App component
-├── App.css         # Styles for App component
-├── index.js        # Application entry point
-├── index.css       # Global styles
-├── setupTests.js   # Testing setup with jest-dom
-└── reportWebVitals.js  # Performance monitoring
-```
+- `src/index.js` — entry point; renders `<App />` into `#root` in StrictMode
+- `src/App.js` — the single application component
+- `src/setupTests.js` — imports `@testing-library/jest-dom` matchers for all tests
+- Tests use @testing-library/react (React 19, Testing Library 16)
 
-### Key Technologies
-- **React 19.1.1** - UI framework
-- **React Scripts 5.0.1** - CRA build tooling
-- **Testing Library** - Component testing utilities
-- **Jest** - Test runner configured via setupTests.js
-
-### Testing Setup
-Tests use @testing-library/react with jest-dom matchers. The setupTests.js file imports jest-dom for enhanced DOM assertions.
+Webpack config is hidden behind react-scripts 5.0.1. Do not run `npm run eject`.
 
 ## Book Project Context
 
-This React app is part of a larger documentation project for Claude Code. The parent project structure includes:
-- `week1/` through `week4/` - Weekly learning modules
-- Each week contains daily tutorials (day1-day5) and weekend reading materials
-- Focus areas: Installation, configuration, workflow strategies, and optimization
+This app lives at `week2/Mon/` inside a larger guidebook repository organized as `week1/`–`week4/`, each week containing daily tutorials and weekend reading materials.
 
 ## Development Guidelines
 
-When modifying this React application:
-1. Maintain the simple CRA structure for educational clarity
+1. Maintain the simple CRA structure for educational clarity — no complex React patterns
 2. Keep examples practical and reproducible
 3. Comment code examples in Korean for the guidebook audience
-4. Focus on demonstrating Claude Code capabilities rather than complex React patterns
